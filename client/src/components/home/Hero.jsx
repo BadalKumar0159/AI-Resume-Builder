@@ -1,24 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
-import framerLogo from "../../assets/Framer.svg";
-import huaweiLogo from "../../assets/Huawei.svg";
-import instagramLogo from "../../assets/Instagram.svg";
-import microsoftLogo from "../../assets/Microsoft.svg";
-import walmartLogo from "../../assets/Walmart.svg";
+import framer from "../../assets/Framer.svg";
+import huawei from "../../assets/Huawei.svg";
+import instagram from "../../assets/Instagram.svg";
+import microsoft from "../../assets/Microsoft.svg";
+import walmart from "../../assets/Walmart.svg";
 import menuLogo from "../../assets/menu.svg";
 import starLogo from "../../assets/star.svg";
-import { ArrowRight, Video } from 'lucide-react';
+import { ArrowRight, Video, Star } from 'lucide-react';
 const Hero = () => {
-    const [menuOpen, setMenuOpen] = React.useState(false);
 
-    const companiesLogo = [
-        { logo: framerLogo },
-        { logo: huaweiLogo },
-        { logo: instagramLogo },
-        { logo: microsoftLogo },
-        { logo: walmartLogo }
-    ];
-
+    const [menuOpen, setMenuOpen] = useState(false);
+    const companiesLogo = [ framer, huawei, instagram, microsoft, walmart];
 
     return (
         <>
@@ -78,7 +71,7 @@ const Hero = () => {
                         <div>
                             <div className="flex ">
                                 {Array(5).fill(0).map((_, i) => (
-                                    <img key={i} src={starLogo} alt="" className="lucide lucide-star text-transparent fill-green-600"  />
+                                    <Star size={20} key={i} strokeWidth={1} className="text-black fill-green-600"  />
                                 ))}
                             </div>
                             <p className="text-sm text-gray-700">
@@ -112,7 +105,7 @@ const Hero = () => {
 
                     <div className="flex flex-wrap justify-between max-sm:justify-center gap-6 max-w-3xl w-full mx-auto py-4" id="logo-container">
                         {companiesLogo.map((company, index) => (
-                            <img key={index} src={company.logo} className="h-7 w-auto max-w-xs"   />
+                            <img key={index} src={company} className="h-7 w-auto max-w-xs"   />
                         ))}
                     </div>
                 </div>
