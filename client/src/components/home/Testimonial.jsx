@@ -41,7 +41,7 @@ const Testimonial = () => {
 
             <div className='flex flex-wrap mt-10 justify-center px-4 sm:px-20 xl:px-32 py-14'>
                 {TestimonialData.map((testimonial, index) => (
-                    <div key={index} className='p-8 m-4 max-w-md rounded-lg bg-[#FDFDFE] shadow-lg border border-gray-100 hover:-translate-y-1 transition duration-300 cursor-pointer'>
+                    <div key={index} className='p-8 m-4 max-w-xl lg:max-w-md rounded-lg bg-[#FDFDFE] shadow-lg border border-gray-100 hover:-translate-y-1 transition duration-300 cursor-pointer'>
                         <div className="flex items-center gap-1">
                             <Star strokeWidth={1} className='size-5 text-green-700 fill-green-700'/>
                             <Star strokeWidth={1} className='size-5 text-green-700 fill-green-700'/>
