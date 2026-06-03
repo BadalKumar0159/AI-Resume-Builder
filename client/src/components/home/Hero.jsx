@@ -26,7 +26,7 @@ const Hero = () => {
                         <a href="#" className="hover:text-green-600 transition">Home</a>
                         <a href="#features" className="hover:text-green-600 transition">Features</a>
                         <a href="#testimonials" className="hover:text-green-600 transition">Testimonials</a>
-                        <a href="#cta" className="hover:text-green-600 transition">Contact</a>
+                        <a href="#contact" className="hover:text-green-600 transition">Contact</a>
                     </div>
 
                     <div className="flex gap-2">
