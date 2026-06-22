@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { dummyResumeData } from '../assets/assets';
 import { ArrowLeftIcon, Briefcase, ChevronLeft, ChevronRight, FileText, FolderIcon, GraduationCap, Sparkles, User } from 'lucide-react';
+import PersonalInfoForm from '../components/PersonalInfoForm';
 
 const ResumeBuilder = () => {
 
@@ -56,7 +57,7 @@ const ResumeBuilder = () => {
         <div className='grid grid-cols-12 gap-8'>
           {/* --------------- Left Panel-Form ---------------- */}
 
-          <div className='relative lg:col-span-5 rounded-lg overflow-hidden'>
+          <div className='relative col-span-12 lg:col-span-5 rounded-lg overflow-hidden'>
             <div className='bg-white rounded-lg shadow-sm border border-gray-200 p-6 pt-1'>
 
               {/* --- progress bar using activeSectionIndex --- */}
@@ -85,7 +86,8 @@ const ResumeBuilder = () => {
               {/* --- Form Content ---*/}
               <div className='space-y-6'>
                 {activeSection.id === 'personal' && (
-                  <div></div>
+                  <PersonalInfoForm data={resumeData.personal_info} removeBackground={removeBackground} setRemoveBackground={setRemoveBackground}
+                  updatePersonalInfo={(data)=>setResumeData(prev => ({...prev, personal_info: data}))} />
                 )}
               </div>
               
@@ -93,7 +95,13 @@ const ResumeBuilder = () => {
           </div>
 
           {/* Right Panel - Preview */}
-          <div></div>
+          <div className='lg:col-span-7'>
+            <div>
+              {/* ----------- buttons ----------- */}
+            </div>
+            
+            {/*----------- Resume Preview -------------*/}
+          </div>
         </div>
       </div>
     </div>
