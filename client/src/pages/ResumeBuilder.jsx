@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom'
 import { dummyResumeData } from '../assets/assets';
 import { ArrowLeftIcon, Briefcase, ChevronLeft, ChevronRight, FileText, FolderIcon, GraduationCap, Sparkles, User } from 'lucide-react';
 import PersonalInfoForm from '../components/PersonalInfoForm';
+import ResumePreview from '../components/ResumePreview';
+import TemplateSelector from '../components/TemplateSelector';
 
 const ResumeBuilder = () => {
 
@@ -67,17 +69,22 @@ const ResumeBuilder = () => {
 
               {/* --- Section Navigation --- */}
               <div className='flex justify-between items-center mb-6 border-b border-gray-300 py-1'>
-                <div></div>
+
+                <div className=''>
+                  <TemplateSelector selectedTemplate={resumeData.template} 
+                  onChange={(template) => setResumeData(prev => ({...prev, template}))} />
+                </div>
+
                 <div className='flex items-center'>
-                {activeSectionIndex !== 0 && (  
-                  <button onClick={() => setActiveSectionIndex(prevIndex => Math.max(prevIndex - 1, 0))} className='flex items-center
+                  {activeSectionIndex !== 0 && (
+                    <button onClick={() => setActiveSectionIndex(prevIndex => Math.max(prevIndex - 1, 0))} className='flex items-center
                     gap-1 p-3 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all' >
-                    <ChevronLeft className='size-4' /> Previous
-                  </button>
+                      <ChevronLeft className='size-4' /> Previous
+                    </button>
                   )}
                   <button onClick={() => setActiveSectionIndex(prevIndex => Math.min(prevIndex + 1, sections.length - 1))} className={`flex 
                   items-center gap-1 p-3 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all
-                  ${activeSectionIndex === sections.length-1 && 'opacity-50'}`}  disabled={activeSectionIndex === sections.length - 1}>
+                  ${activeSectionIndex === sections.length - 1 && 'opacity-50'}`} disabled={activeSectionIndex === sections.length - 1}>
                     Next <ChevronRight className='size-4' />
                   </button>
                 </div>
@@ -87,20 +94,22 @@ const ResumeBuilder = () => {
               <div className='space-y-6'>
                 {activeSection.id === 'personal' && (
                   <PersonalInfoForm data={resumeData.personal_info} removeBackground={removeBackground} setRemoveBackground={setRemoveBackground}
-                  updatePersonalInfo={(data)=>setResumeData(prev => ({...prev, personal_info: data}))} />
+                    updatePersonalInfo={(data) => setResumeData(prev => ({ ...prev, personal_info: data }))} />
                 )}
               </div>
-              
+
             </div>
           </div>
 
           {/* Right Panel - Preview */}
-          <div className='lg:col-span-7'>
+          <div className=' col-span-12 lg:col-span-7'>
             <div>
               {/* ----------- buttons ----------- */}
             </div>
-            
+
             {/*----------- Resume Preview -------------*/}
+            <ResumePreview data={resumeData} template={resumeData.template} accentColor={resumeData.accent_color}/>
+            
           </div>
         </div>
       </div>

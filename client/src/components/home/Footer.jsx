@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-     <footer id='contact' className="w-full bg-gradient-to-b from-green-200/50 to-whitetext-gray-800 mt-35">
+     <footer id='contact' className="w-full bg-gradient-to-b from-green-200 to-whitetext-gray-800 mt-35">
             <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col items-center">
                 <div className="flex items-center space-x-3 mb-6">
                     <img src='/logo.svg' alt="" />
