@@ -8,6 +8,7 @@ import TemplateSelector from '../components/TemplateSelector';
 import ColorPicker from '../components/ColorPicker';
 import ProfessionalSummary from '../components/ProfessionalSummary';
 import ExperienceForm from '../components/ExperienceForm';
+import EducationForm from '../components/EducationForm';
 
 const ResumeBuilder = () => {
 
@@ -68,7 +69,7 @@ const ResumeBuilder = () => {
                      {/* --- progress bar using activeSectionIndex --- */}
                      <hr className='absolute top-0 left-0 right-0 border-2 border-gray-200' />
                      <hr className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 to-green-600 transition-all
-                duration-2000' style={{ width: `${activeSectionIndex * 100 / (sections.length - 1)}%` }} />
+                     duration-2000' style={{ width: `${activeSectionIndex * 100 / (sections.length - 1)}%` }} />
 
                      {/* --- Section Navigation --- */}
                      <div className='flex justify-between items-center mb-6 border-b border-gray-300 py-1'>
@@ -83,13 +84,13 @@ const ResumeBuilder = () => {
                         <div className='flex items-center'>
                            {activeSectionIndex !== 0 && (
                               <button onClick={() => setActiveSectionIndex(prevIndex => Math.max(prevIndex - 1, 0))} className='flex items-center
-                    gap-1 p-3 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all' >
+                              gap-1 p-3 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all' >
                                  <ChevronLeft className='size-4' /> Previous
                               </button>
                            )}
                            <button onClick={() => setActiveSectionIndex(prevIndex => Math.min(prevIndex + 1, sections.length - 1))} className={`flex 
-                  items-center gap-1 p-3 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all
-                  ${activeSectionIndex === sections.length - 1 && 'opacity-50'}`} disabled={activeSectionIndex === sections.length - 1}>
+                           items-center gap-1 p-3 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-all
+                           ${activeSectionIndex === sections.length - 1 && 'opacity-50'}`} disabled={activeSectionIndex === sections.length - 1}>
                               Next <ChevronRight className='size-4' />
                            </button>
                         </div>
@@ -108,6 +109,10 @@ const ResumeBuilder = () => {
                         {activeSection.id === 'experience' && (
                            <ExperienceForm data={resumeData.experience}
                               onChange={(data) => setResumeData(prev => ({ ...prev, experience: data }))} />
+                        )}
+                        {activeSection.id === 'education' && (
+                           <EducationForm data={resumeData.education}
+                              onChange={(data) => setResumeData(prev => ({ ...prev, education: data }))} />
                         )}
 
                      </div>

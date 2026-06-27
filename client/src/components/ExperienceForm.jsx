@@ -44,7 +44,7 @@ const ExperienceForm = ({ data, onChange }) => {
             <div className='text-center py-8 text-gray-500'>
                <Briefcase className='w-12 h-12 mx-auto mb-3' />
                <p>No work experience added yet.</p>
-               <p className='text-sm'>Click "Add Experience" to get started.</p>
+               <p className='text-sm text-gray-400'>Click "Add Experience" to get started.</p>
             </div>
          ) : (
             <div className='space-y-4'>
