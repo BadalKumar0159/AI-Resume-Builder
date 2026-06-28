@@ -41,9 +41,9 @@ const EducationForm = ({ data, onChange }) => {
          </div>
          {data.length === 0 ? (
             <div className='text-center py-8 text-gray-500'>
-               <GraduationCap className='w-12 h-12 mx-auto mb-3' />
+               <GraduationCap className='w-12 h-12 mx-auto mb-3 text-gray-400' />
                <p>No education added yet.</p>
-               <p className='text-sm text-gray-400'>Click "Add Education" to get started.</p>
+               <p className='text-sm'>Click "Add Education" to get started.</p>
             </div>
          ) : (
             <div className='space-y-4'>
