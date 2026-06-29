@@ -26,7 +26,7 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
                 {renderTemplate()}
             </div>
             <style>
-            {`
+                {`
                 @page {
                     size: letter;
                     margin: 0;
@@ -40,13 +40,16 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
                 body *{
                     visibility: hidden;
                 }
+                #resume-preview, #resume-preview * {
+                    visibility: visible;
+                }
                 #resume-preview{
                     position: absolute;
                     left: 0;
                     top: 0;
                     width: 100%;
                     height: auto;
-                    mergin: 0;
+                    margin: 0;
                     padding: 0;
                     box-shadow: none !important;
                 
